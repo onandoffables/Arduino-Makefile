@@ -1526,9 +1526,12 @@ help:
 "
 	@$(ECHO) "Please refer to $(ARDMK_DIR)/Arduino.mk for more details.\n"
 
+avrpi:	$(TARGET_EEP) $(TARGET_HEX) verify_size
+		$(AVRDUDE) -c linuxgpio -p $(MCU) $(AVRDUDE_UPLOAD_HEX)
+
 .PHONY: all upload raw_upload raw_eeprom error_on_caterina reset reset_stty ispload \
         clean depends size show_boards monitor disasm symbol_sizes generated_assembly \
-        generate_assembly verify_size burn_bootloader help pre-build
+        generate_assembly verify_size burn_bootloader help avrpi pre-build
 
 # added - in the beginning, so that we don't get an error if the file is not present
 -include $(DEPS)
