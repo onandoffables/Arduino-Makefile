@@ -1,4 +1,4 @@
-BOARD_TAG    = avrpi8
+BOARD_TAG    = avrpi328_8
 ARDUINO_LIBS = LiquidCrystal
 
 include ../../Arduino.mk
